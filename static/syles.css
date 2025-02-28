@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+.form-control, .form-range {
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: #2c3e50;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #34495e;
+}

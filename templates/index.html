@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Portfolio Optimizer</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Plotly.js for charts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">📈 Stock Portfolio Optimizer</h2>
+
+        <!-- Portfolio Form -->
+        <form id="portfolioForm" class="shadow p-4 bg-white rounded">
+            <div class="mb-3">
+                <label for="stocks" class="form-label">Enter Stock Tickers (comma separated)</label>
+                <input type="text" class="form-control" id="stocks" placeholder="AAPL, GOOGL, MSFT">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="start" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="start" min="1995-01-01" value="2021-01-01">
+                </div>
+                <div class="col-md-6">
+                    <label for="end" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="end">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="funds" class="form-label">Investment Amount ($)</label>
+                <input type="number" class="form-control" id="funds" placeholder="Enter investment amount">
+            </div>
+
+            <div class="mb-3">
+                <label for="risk_tolerance" class="form-label">Risk Tolerance</label>
+                <input type="range" class="form-range" id="risk_tolerance" min="0" max="100" value="50">
+                <p class="text-muted">Risk Level: <span id="riskValue">50</span></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Optimize Portfolio</button>
+        </form>
+
+        <!-- Loading Message (Hidden Initially) -->
+        <p id="loadingMessage" class="text-center mt-3" style="display: none; font-weight: bold; font-size: 1.2rem; color: #2c3e50;">
+            ⏳ <strong>Preparing portfolio...</strong>
+        </p>
+
+        <!-- Results & Charts Section -->
+        <div id="results" class="mt-4"></div>
+        <div id="charts">
+            <div id="pieChart" class="mt-4"></div>
+            <div id="priceChart" class="mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
